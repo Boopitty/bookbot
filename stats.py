@@ -9,7 +9,7 @@ def count(file_path):
     text = get_book_text(file_path).split()
     return len(text)
 
-# Counts the number of each letter/character in the text listed in amount
+# Counts the number of each letter/character in the text and stores it in a dictionary
 def letters(file_path):
     amount = {}
     text = get_book_text(file_path).lower()
@@ -22,9 +22,9 @@ def letters(file_path):
                 amount[char] = 1         
     return amount
 
-# Used for .sort()... it will sort the dictionary by the number of letters
-def sort_on(dict):
-    return dict['num']
+# Used for .sort()... it will sort the list by the number of letters
+def sort_on(tuple: tuple[str, int]) -> int:
+    return tuple[1]
 
 # Turns the dictionary into a list of dictionaries
 def letter_list(file_path):
@@ -43,3 +43,12 @@ def sorted_letters(file_path):
     for dict in dict_list:
         values.append(f"{dict['Key']}: {dict['num']}")
     return values
+
+# Turns a dictionary into a list of tuples and sorts it by the number of letters
+def chars_dict_to_sorted_list(dict: dict[str, int]) -> list[tuple[str, int]]:
+    lst: list[tuple[str, int]] = []
+    for key in dict:
+        lst.append((key, dict[key]))
+
+    lst.sort(key=sort_on, reverse=True)
+    return lst
