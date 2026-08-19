@@ -1,4 +1,4 @@
-from stats import get_book_text, count, sorted_letters, letters, chars_dict_to_sorted_list
+from stats import get_book_text, count, letters, chars_dict_to_sorted_list
 import sys
 
 # The sys module allows the program to take a string as input.
